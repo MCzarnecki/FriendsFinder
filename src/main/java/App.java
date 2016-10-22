@@ -102,9 +102,4 @@ public class App {
         }
     }
 
-    public static void readCSV() {
-        JavaPairRDD<String, String> csvData = sc.wholeTextFiles("sample.csv");
-        JavaRDD<String[]> keyedRDD = csvData.flatMap(new ParseLine());
-        keyedRDD.saveAsTextFile("csv");
-    }
 }
