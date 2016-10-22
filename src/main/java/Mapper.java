@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Mapper implements Serializable {
 
@@ -16,9 +17,7 @@ public class Mapper implements Serializable {
 
         JavaRDD<String> textFile = sc.textFile("./src/main/resources/friends");
 
-        JavaRDD<KeyValuePair> words = textFile.flatMap(new FlatMapFunction<String, KeyValuePair>() {
-            public Iterable<KeyValuePair> call(String s) { return lineToKeyValue(s); }
-        });
+        JavaRDD<KeyValuePair> words = textFile.flatMap(x -> lineToKeyValue(x));
         words.saveAsTextFile("output");
         sc.close();
     }
@@ -29,13 +28,13 @@ public class Mapper implements Serializable {
         String[] splitedLine = line.split(" -> ");
         String person = splitedLine[0];
         List<String> friends = Arrays.asList(splitedLine[1].split(" "));
-        friends.stream().sorted((x, y) -> x.compareTo(y));
+        friends = friends.stream().sorted((x, y) -> x.compareTo(y)).collect(Collectors.toList());
 
         for(String friend : friends) {
             List<String> key = new ArrayList<>();
             key.add(person);
             key.add(friend);
-            key.stream().sorted((x,y) -> x.compareTo(y));
+            key = key.stream().sorted((x,y) -> x.compareTo(y)).collect(Collectors.toList());
 
             KeyValuePair keyValuePair = new KeyValuePair(key, friends);
             keyValuePairs.add(keyValuePair);
