@@ -5,9 +5,4 @@ public class App {
         Mapper mapper = new Mapper();
         mapper.mapAndSave();
     }
-
-
-
-
-
 }
