@@ -93,13 +93,5 @@ public class App {
         files.saveAsTextFile("SalesPair");
     }
 
-    public static class ParseLine implements FlatMapFunction<Tuple2<String, String>, String[]> {
-
-        @Override
-        public Iterable<String[]> call(Tuple2<String, String> file) throws Exception {
-            CSVReader reader = new CSVReader(new StringReader(file._2));
-            return reader.readAll();
-        }
-    }
 
 }
