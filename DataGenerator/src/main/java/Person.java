@@ -6,6 +6,11 @@ public class Person {
 
     private List<String> friends;
 
+    public Person(String name, List<String> friends) {
+        this.name = name;
+        this.friends = friends;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

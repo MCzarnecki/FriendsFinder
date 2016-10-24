@@ -9,7 +9,7 @@ public class NamesGenerator {
 
     }
 
-    public List<String> generate(int count) {
+    public static List<String> generate(int count) {
 
         List<String> names = new ArrayList<>();
         while(names.size() != count) {
