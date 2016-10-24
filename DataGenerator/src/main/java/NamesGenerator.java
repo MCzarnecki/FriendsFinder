@@ -5,17 +5,15 @@ import java.util.List;
 
 public class NamesGenerator {
 
-    private int numberOfNamesToGenerate;
+    private NamesGenerator() {
 
-    private List<String> names = new ArrayList<>();
-
-    public NamesGenerator(int numberOfNamesToGenerate) {
-        this.numberOfNamesToGenerate = numberOfNamesToGenerate;
     }
 
-    public List<String> generate() {
-        while(names.size() != numberOfNamesToGenerate) {
-            String name = RandomStringUtils.random(10, true, false);
+    public List<String> generate(int count) {
+
+        List<String> names = new ArrayList<>();
+        while(names.size() != count) {
+            String name = RandomStringUtils.random(10, true, false).toLowerCase();
             if(!names.contains(name)) {
                 names.add(name);
             }
@@ -24,11 +22,4 @@ public class NamesGenerator {
         return names;
     }
 
-    public int getNumberOfNamesToGenerate() {
-        return numberOfNamesToGenerate;
-    }
-
-    public void setNumberOfNamesToGenerate(int numberOfNamesToGenerate) {
-        this.numberOfNamesToGenerate = numberOfNamesToGenerate;
-    }
 }
