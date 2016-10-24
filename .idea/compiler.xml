@@ -22,10 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="SparkProject" />
+        <module name="DataGenerator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="DataGenerator" target="1.8" />
       <module name="SparkProject" target="1.8" />
     </bytecodeTargetLevel>
   </component>
