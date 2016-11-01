@@ -14,16 +14,6 @@ import java.util.stream.Collectors;
 
 public class Mapper implements Serializable {
 
-    /*
-    JavaPairRDD<String, Integer> pairs = words.mapToPair(new PairFunction<String, String, Integer>() {
-  public Tuple2<String, Integer> call(String s) { return new Tuple2<String, Integer>(s, 1); }
-});
-JavaPairRDD<String, Integer> counts = pairs.reduceByKey(new Function2<Integer, Integer, Integer>() {
-  public Integer call(Integer a, Integer b) { return a + b; }
-});
-     */
-
-
     public void mapAndSave() {
         SparkConf conf = new SparkConf().setMaster("local").setAppName("Spark");
         JavaSparkContext sc = new JavaSparkContext(conf);
@@ -32,12 +22,7 @@ JavaPairRDD<String, Integer> counts = pairs.reduceByKey(new Function2<Integer, I
 
         JavaRDD<KeyValuePair> words = textFile.flatMap(x -> lineToKeyValue(x));
         JavaPairRDD<List<String>, List<String>> pairedFriends = words.mapToPair(x -> new Tuple2<>(x.getSortedKey(), x.getValue()));
-
-        JavaPairRDD<List<String>, List<String>> friendship = pairedFriends.reduceByKey(new Function2<List<String>, List<String>, List<String>>() {
-            public List<String> call(List<String> a, List<String> b) {
-                return common(a, b);
-            }
-        });
+        JavaPairRDD<List<String>, List<String>> friendship = pairedFriends.reduceByKey((List<String> a, List<String> b) -> common(a, b));
 
         friendship.saveAsTextFile("output");
         sc.close();

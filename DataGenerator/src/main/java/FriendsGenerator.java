@@ -53,7 +53,9 @@ public class FriendsGenerator {
 
         try {
             PrintWriter out = new PrintWriter("filename.txt");
-            out.write(persons.toString());
+            for(Person person : persons) {
+                out.write(person.toString());
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }

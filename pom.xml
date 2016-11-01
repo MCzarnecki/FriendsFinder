@@ -22,6 +22,7 @@
     </build>
     <modules>
         <module>DataGenerator</module>
+        <module>SequentialAlgorithm</module>
     </modules>
 
     <dependencies>
