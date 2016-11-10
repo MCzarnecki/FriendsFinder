@@ -25,12 +25,14 @@
         <module name="DataGenerator" />
         <module name="pwr" />
         <module name="SequentialAlgorithm" />
+        <module name="SparkAlgorithm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="DataGenerator" target="1.8" />
       <module name="pwr" target="1.8" />
       <module name="SequentialAlgorithm" target="1.8" />
+      <module name="SparkAlgorithm" target="1.8" />
       <module name="SparkProject" target="1.8" />
     </bytecodeTargetLevel>
   </component>

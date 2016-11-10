@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DataGenerator/DataGenerator.iml" filepath="$PROJECT_DIR$/DataGenerator/DataGenerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/SequentialAlgorithm/SequentialAlgorithm.iml" filepath="$PROJECT_DIR$/SequentialAlgorithm/SequentialAlgorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SparkAlgorithm/SparkAlgorithm.iml" filepath="$PROJECT_DIR$/SparkAlgorithm/SparkAlgorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/SparkProject.iml" filepath="$PROJECT_DIR$/SparkProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataGenerator/pwr.iml" filepath="$PROJECT_DIR$/DataGenerator/pwr.iml" />
       <module fileurl="file://$PROJECT_DIR$/DataGenerator/pwr.iml" filepath="$PROJECT_DIR$/DataGenerator/pwr.iml" />
     </modules>
   </component>
