@@ -1,3 +1,5 @@
+package StringData;
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ public class FriendsGenerator {
             String name = names.get(0);
             names.remove(0);
             Random random = new Random();
-            int x = random.nextInt(100);
+            int x = random.nextInt(count - 1);
             List<String> friends = getFriends(x, names);
             names.add(name);
             persons.add(new Person(name, friends));
@@ -44,15 +46,11 @@ public class FriendsGenerator {
         return friends;
     }
 
-    public static void test(List<String> list) {
-        list.remove(1);
-    }
-
     public static void main(String... args) throws FileNotFoundException {
-        List<Person> persons = generate(100);
+        List<Person> persons = generate(10);
 
         try {
-            PrintWriter out = new PrintWriter("filename.txt");
+            PrintWriter out = new PrintWriter("10.txt");
             for(Person person : persons) {
                 out.write(person.toString());
             }

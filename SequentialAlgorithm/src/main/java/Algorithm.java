@@ -1,3 +1,5 @@
+import StringData.Person;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.*;
@@ -11,7 +13,7 @@ public class Algorithm {
         algorithm.start("filename.txt");
     }
 
-    public void start(String filePath) {
+    private void start(String filePath) {
         List<Person> persons = loadPersons(filePath);
         Map<List<String>, List<String>> mapped = new HashMap<>();
 
@@ -38,7 +40,7 @@ public class Algorithm {
             BufferedReader file = new BufferedReader(new FileReader(filePath));
 
 
-            String line = null;
+            String line;
             while ((line = file.readLine()) != null) {
                 String lines[] = line.split(" -> ");
                 String[] friends = lines[1].split(" ");

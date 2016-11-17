@@ -1,3 +1,5 @@
+package StringData;
+
 import org.apache.commons.lang.RandomStringUtils;
 
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ public class NamesGenerator {
 
         List<String> names = new ArrayList<>();
         while(names.size() != count) {
-            String name = RandomStringUtils.random(10, true, false).toLowerCase();
+            String name = RandomStringUtils.random(15, true, false).toLowerCase();
             if(!names.contains(name)) {
                 names.add(name);
             }
