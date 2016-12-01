@@ -10,10 +10,10 @@ public class Algorithm {
     public static void main(String ...args) {
 
         Algorithm algorithm = new Algorithm();
-        algorithm.start("filename.txt");
+        algorithm.start("D://BigData//I100.txt");
     }
 
-    private void start(String filePath) {
+    public void start(String filePath) {
         List<Person> persons = loadPersons(filePath);
         Map<List<String>, List<String>> mapped = new HashMap<>();
 
@@ -26,10 +26,6 @@ public class Algorithm {
                 mapped.put(key, commonFriends(persons.get(i), persons.get(j)));
             }
         }
-
-        System.out.println(mapped.toString());
-
-
     }
 
     private List<Person> loadPersons(String filePath) {
@@ -43,16 +39,19 @@ public class Algorithm {
             String line;
             while ((line = file.readLine()) != null) {
                 String lines[] = line.split(" -> ");
-                String[] friends = lines[1].split(" ");
+                String[] friends = new String[0];
+                if (lines.length != 1) {
+                    friends = lines[1].split(" ");
+                }
                 Person person = new Person(lines[0], Arrays.asList(friends));
                 persons.add(person);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
         return persons;
-    }
+}
 
     private List<String> commonFriends(Person a, Person b) {
         return a.getFriends().stream().filter(friend -> b.getFriends().contains(friend)).collect(Collectors.toList());

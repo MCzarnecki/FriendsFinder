@@ -11,11 +11,13 @@ public class FriendsTOGenerator {
 
     }
 
+    private List<Integer> ids;
+
     private List<PersonTO> generate(Integer count) {
 
         List<PersonTO> persons = new ArrayList<>();
 
-        List<Integer> ids = new ArrayList<>();
+        ids = new ArrayList<>();
         for(Integer i = 0; i < count; i++) {
             ids.add(i);
         }
@@ -25,7 +27,7 @@ public class FriendsTOGenerator {
             ids.remove(0);
             Random random = new Random();
             int x = random.nextInt(count > 1000 ? 1000 : count - 1);
-            List<Integer> friends = getFriends(x, ids);
+            List<Integer> friends = getFriends(x);
             ids.add(id);
             persons.add(new PersonTO(id, friends));
 
@@ -35,7 +37,7 @@ public class FriendsTOGenerator {
     }
 
 
-    private List<Integer> getFriends(Integer count, List<Integer> ids) {
+    private List<Integer> getFriends(Integer count) {
 
         List<Integer> namesCopy = new ArrayList<>(ids);
         List<Integer> friends = new ArrayList<>();
