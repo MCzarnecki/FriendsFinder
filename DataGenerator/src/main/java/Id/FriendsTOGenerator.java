@@ -57,10 +57,23 @@ public class FriendsTOGenerator {
 
         FriendsTOGenerator generator = new FriendsTOGenerator();
 
-        List<PersonTO> friends = generator.generate(200000);
+        for(int i = 100; i <= 5000; i += 100) {
+            List<PersonTO> friends = generator.generate(i);
+            try {
+                PrintWriter out = new PrintWriter("Data\\I" + i +".txt");
+                for(PersonTO person : friends) {
+                    out.write(person.toString());
+                }
+
+                out.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+       /* List<PersonTO> friends = generator.generate(100);
 
         try {
-            PrintWriter out = new PrintWriter("D:\\BigData\\I200000.txt");
+            PrintWriter out = new PrintWriter("Data\\I200.txt");
             for(PersonTO person : friends) {
                 out.write(person.toString());
             }
@@ -68,7 +81,7 @@ public class FriendsTOGenerator {
             out.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }*/
 
     }
 }
