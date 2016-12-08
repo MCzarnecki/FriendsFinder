@@ -57,7 +57,7 @@ public class FriendsTOGenerator {
 
         FriendsTOGenerator generator = new FriendsTOGenerator();
 
-        for(int i = 100; i <= 5000; i += 100) {
+        for(int i = 10000; i <= 100000; i += 10000) {
             List<PersonTO> friends = generator.generate(i);
             try {
                 PrintWriter out = new PrintWriter("Data\\I" + i +".txt");
